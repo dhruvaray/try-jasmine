@@ -1,4 +1,6 @@
 try-jasmine
 ===========
 
-An online sandbox for playing with Jasmine, a bunch of supporting scripts, and Backbone-Associations/Backbone/Underscore/CoffeeScript
+An online sandbox for playing with Jasmine and Backbone-Associations.
+
+http://dhruvaray.github.io/try-jasmine/public/index.html
