@@ -109,7 +109,7 @@
       var mode = require("ace/mode/"+name).Mode;
       editor.getSession().setMode(new mode());
     };
-    editor.switchMode(localStorage['editorMode'] || 'javascript');
+    editor.switchMode(localStorage['editorMode'] || 'coffeescript');
     $this.data('editor',editor);
     return $this;
   };
