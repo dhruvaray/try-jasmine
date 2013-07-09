@@ -111,30 +111,30 @@
   <!--Templates-->
   <pre class="template" id="default-specs">
 describe "p", ->
-it "is at zip 94404", ->
-expect(p.get('locations').at(0).get 'zip').toBe "94404"
+    it "is at zip 94404", ->
+        expect(p.get('locations').at(0).get 'zip').toBe "94404"
   </pre>
   <pre class="template" id="default-src">
 window.app = {}
 
 class app.Location extends Backbone.AssociatedModel
-defaults:
- add1: ''
- add2: ''
- zip: ''
- state: ''
+    defaults:
+     add1: ''
+     add2: ''
+     zip: ''
+     state: ''
 
 class app.Project extends Backbone.AssociatedModel
-defaults:
- name: ''
- number: 0
- locations: []
+    defaults:
+     name: ''
+     number: 0
+     locations: []
 
-relations: [
- type: Backbone.Many
- key:  'locations'
- relatedModel:app.Location
-]
+    relations: [
+     type: Backbone.Many
+     key:  'locations'
+     relatedModel:app.Location
+    ]
 
 p = new app.Project
 l = new app.Location add1:"P.O Box 3899", zip:"94404", state:"CA"
