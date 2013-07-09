@@ -50,7 +50,7 @@
               <label for="mode-select">edit in</label>
               <select id="mode-select">
                 <option value="javascript">JavaScript mode</option>
-                <option value="coffee">CoffeeScript mode</option>
+                <option value="coffee" selected>CoffeeScript mode</option>
               </select>
             </span>
           </div>
@@ -110,14 +110,36 @@
 
   <!--Templates-->
   <pre class="template" id="default-specs">
-  describe('panda',function(){
-  it('is happy',function(){
-    expect(panda).toBe('happy');
-  });
-});
+describe "p", ->
+it "is at zip 94404", ->
+expect(p.get('locations').at(0).get 'zip').toBe "94404"
   </pre>
   <pre class="template" id="default-src">
-    panda = 'sad';
+window.app = {}
+
+class app.Location extends Backbone.AssociatedModel
+defaults:
+ add1: ''
+ add2: ''
+ zip: ''
+ state: ''
+
+class app.Project extends Backbone.AssociatedModel
+defaults:
+ name: ''
+ number: 0
+ locations: []
+
+relations: [
+ type: Backbone.Many
+ key:  'locations'
+ relatedModel:app.Location
+]
+
+p = new app.Project
+l = new app.Location add1:"P.O Box 3899", zip:"94404", state:"CA"
+
+p.get('locations').add l
   </pre>
 
   <script type="text/html" class="template sandbox">
@@ -127,17 +149,5 @@
     <div class="load-spin"><img src="img/ajax-loader.gif"></img></div>
   </script>
 
-
-  <script type="text/javascript">
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-19328582-2']);
-    _gaq.push(['_trackPageview']);
-
-    (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-  </script>
 </body>
 </html>
